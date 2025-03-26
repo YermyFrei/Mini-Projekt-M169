@@ -35,7 +35,7 @@ http://localhost:8080
 
 ## 7. Log-Dateien anzeigen
 ```sh
-docker logs webserver-container
+docker logs apache
 ```
 
 ## 8. Container stoppen und entfernen
