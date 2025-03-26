@@ -24,7 +24,7 @@ docker build -t apache-server .
 docker run -d -p 8080:80 \
   -v $(pwd)/website:/usr/local/apache2/htdocs:ro \
   -v $(pwd)/logs:/usr/local/apache2/logs \
-  --name apache apache-server
+  --name apache apache
 ```
 ## 6. Log-Dateien anzeigen
 ```sh
