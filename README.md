@@ -22,7 +22,7 @@ docker build -t apache-server .
 ## 5. Container starten
 ```sh
 docker run -d -p 8080:80 \
-  -v $(pwd)./website.html:/usr/local/apache2/htdocs:ro \
+  -v $(pwd)/website:/usr/local/apache2/htdocs:ro \
   -v $(pwd)/logs:/usr/local/apache2/logs \
   --name apache apache-server
 ```
