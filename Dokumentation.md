@@ -1,43 +1,32 @@
-# Dokumentation: Apache-Webserver in Docker
+# Docker-basierter Apache-Webserver
 
-## Übersicht
-Dieses Projekt ermöglicht es, einen Apache-Webserver in einem Docker-Container zu betreiben, um eine statische Webseite bereitzustellen. Die Webseiten-Dateien und Log-Dateien werden mittels Volumes verwaltet, sodass sie unabhängig vom Lebenszyklus des Containers erhalten bleiben.
+## Projektbeschreibung
+Dieses Projekt demonstriert, wie ein Apache-Webserver in einem Docker-Container betrieben wird, um eine statische Webseite bereitzustellen. Mithilfe von Volumes bleiben sowohl Webseiten-Dateien als auch Log-Daten unabhängig vom Container erhalten.
 
-## Technologien
-- **Docker**: Containerisierung der Webserver-Umgebung
-- **Apache HTTP Server**: Bereitstellung der statischen Inhalte
-- **Markdown**: Dokumentation des Projekts
+## Einsatz von Technologien
+- **Docker** – Containerisierung der Webserver-Umgebung
+- **Apache HTTP Server** – Hosting statischer Inhalte
+- **Markdown** – Dokumentation und Strukturierung des Projekts
 
-## Verzeichnisstruktur
-```
-WebserverDocker/
-├── website/                # Enthält die statischen HTML-Dateien
-│   ├── index.html          # Hauptseite der Webseite
-├── logs/                   # Speichert die Log-Dateien des Webservers
-├── Dockerfile              # Anweisungen zum Erstellen des Docker-Images
-├── README.md               # Nutzungshinweise für das Projekt
-├── documentation.md        # Ausführliche Projektbeschreibung
-```
 
-## Aufbau des Dockerfiles
-Das **Dockerfile** basiert auf dem offiziellen `httpd`-Image. Die Webseite wird in das Verzeichnis `/usr/local/apache2/htdocs/` kopiert.
+## Dockerfile: Erstellung des Images
+Das **Dockerfile** nutzt das Basis-Image `httpd:latest` und kopiert die Webseite in den entsprechenden Ordner für Apache.
 ```dockerfile
 FROM httpd:latest
-WORKDIR /usr/local/apache2/htdocs/
-COPY ./website /usr/local/apache2/htdocs/
+WORKDIR /usr/local/apache2/htdocs
+COPY website/ .
 EXPOSE 8080
 CMD ["httpd", "-D", "FOREGROUND"]
 ```
 
-## Container starten und Volumes einbinden
-Mit folgendem Befehl wird der Container gestartet. Die Webseiten-Dateien und Log-Dateien werden als Volumes eingebunden:
+## Container-Start mit Volumes
+Um den Container zu starten und Dateien als Volumes einzubinden, verwende den folgenden Befehl:
 ```sh
 docker run -d -p 8080:80 \
-  -v $(pwd)/website:/usr/local/apache2/htdocs \
-  -v $(pwd)/logs:/var/log/apache2 \
-  --name apache-container apache-webserver
+  -v $(pwd)/website:/usr/local/apache2/htdocs:ro \
+  -v $(pwd)/logs:/usr/local/apache2/logs \
+  --name my-apache-server my-apache-image
 ```
 
-## Zusammenfassung
-Dieses Setup ermöglicht die schnelle Bereitstellung einer statischen Webseite in einem Docker-Container mit Apache. Die Nutzung von Volumes sorgt dafür, dass Inhalte und Log-Daten auch nach einem Neustart des Containers verfügbar bleiben.
-
+## Fazit
+Durch den Einsatz von Docker kann eine statische Webseite einfach und effizient mit Apache bereitgestellt werden. Volumes gewährleisten, dass sowohl die Webinhalte als auch die Server-Logs erhalten bleiben, selbst wenn der Container gestoppt oder entfernt wird.
