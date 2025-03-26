@@ -16,7 +16,7 @@ cd WebserverImageDocker
 
 ## 4. Image erstellen
 ```sh
-docker build -t apache-server.
+docker build -t apache-server
 ```
 
 ## 5. Container starten
