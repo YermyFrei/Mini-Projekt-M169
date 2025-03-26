@@ -34,5 +34,6 @@ Im Browser aufrufen:
 ```
 http://localhost:8080
 ```
-
+## 8. Hinweise
+Die Verwendete html Webseite wurde mit chatgpt erstellt.
 
