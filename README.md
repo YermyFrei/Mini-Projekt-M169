@@ -26,22 +26,15 @@ docker run -d -p 8080:80 \
   -v $(pwd)/logs:/usr/local/apache2/logs \
   --name apache apache-server
 ```
+## 6. Log-Dateien anzeigen
+```sh
+docker logs apache
+```
 
-## 6. Zugriff auf die Webseite
+## 7. Zugriff auf die Webseite
 Im Browser aufrufen:
 ```
 http://localhost:8080
 ```
 
-## 7. Log-Dateien anzeigen
-```sh
-docker logs apache
-```
 
-## 8. Container stoppen und entfernen
-```sh
-docker stop webserver-container
-```
-```sh
-docker rm webserver-container
-```
