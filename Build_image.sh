@@ -1,13 +1,17 @@
 #!/bin/bash
 # Erstellt das Docker-Image
 
-cat > Dockerfile <<EOF
+# Basis-Image mit Apache
 FROM httpd:latest
-COPY html/ /usr/local/apache2/htdocs/
-VOLUME [ "/usr/local/apache2/htdocs", "/usr/local/apache2/logs" ]
-EXPOSE 8080
-CMD ["httpd-foreground"]
-EOF
 
-docker build -t my-apache .
-echo "Docker-Image erstellt: my-apache"
+# Arbeitsverzeichnis setzen
+WORKDIR /usr/local/apache2/htdocs/
+
+# Statische Webseite in den Container kopieren
+COPY ./webseite.html /usr/local/apache2/htdocs/index.html
+
+# Exponiere Port 8080
+EXPOSE 8080
+
+# Apache starten
+CMD ["httpd", "-D", "FOREGROUND"]
