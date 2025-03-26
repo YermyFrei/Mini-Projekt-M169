@@ -25,7 +25,7 @@ Um den Container zu starten und Dateien als Volumes einzubinden, verwende den fo
 docker run -d -p 8080:80 \
   -v $(pwd)/website:/usr/local/apache2/htdocs:ro \
   -v $(pwd)/logs:/usr/local/apache2/logs \
-  --name my-apache-server Apache
+  --name apache apache
 ```
 
 ## Schlusswort
