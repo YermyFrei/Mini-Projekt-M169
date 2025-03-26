@@ -10,7 +10,7 @@ um die daten vor verlust beim entfernen zu schützen wird dabei ein volume verwe
 
 ## 3. Repository herunterladen
 ```sh
-git clone https://github.com/YeremyFrei/Mini-Projekt-M169.git
+git clone https://github.com/YermyFrei/Mini-Projekt-M169.git
 cd WebserverImageDocker
 ```
 
