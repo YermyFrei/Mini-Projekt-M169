@@ -3,7 +3,7 @@
 ## Projektbeschreibung
 Dieses Projekt demonstriert, wie ein Apache-Webserver in einem Docker-Container betrieben wird, um eine statische Webseite bereitzustellen. Mithilfe von Volumes bleiben sowohl Webseiten-Dateien als auch Log-Daten unabhängig vom Container erhalten.
 
-## Einsatz von Technologien
+## Verwendete Tools/Techniken
 - **Docker** – Containerisierung der Webserver-Umgebung
 - **Apache HTTP Server** – Hosting statischer Inhalte
 - **Markdown** – Dokumentation und Strukturierung des Projekts
@@ -14,7 +14,7 @@ Das **Dockerfile** nutzt das Basis-Image `httpd:latest` und kopiert die Webseite
 ```dockerfile
 FROM httpd:latest
 WORKDIR /usr/local/apache2/htdocs
-COPY website/ .
+COPY ./webseite.html
 EXPOSE 8080
 CMD ["httpd", "-D", "FOREGROUND"]
 ```
@@ -25,7 +25,7 @@ Um den Container zu starten und Dateien als Volumes einzubinden, verwende den fo
 docker run -d -p 8080:80 \
   -v $(pwd)/website:/usr/local/apache2/htdocs:ro \
   -v $(pwd)/logs:/usr/local/apache2/logs \
-  --name my-apache-server my-apache-image
+  --name my-apache-server Apache
 ```
 
 ## Fazit
