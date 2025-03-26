@@ -9,31 +9,34 @@ In diesem Mini-Projekt wird ein ein Docker image erttellt um mit einem apatche s
 ## 3. Repository herunterladen
 ```sh
 git clone https://github.com/YermyFrei/Mini-Projekt-M169.git
+```
+## 4. Pfad öffnen
+```sh
 cd Mini-Projekt-M169
 ```
 
-## 4. Image erstellen
+## 5. Image erstellen
 ```sh
 docker build -t apache-server .
 ```
 
-## 5. Container starten
+## 6. Container starten
 ```sh
 docker run -d -p 8080:80 \
   -v $(pwd)/index.html:/usr/local/apache2/htdocs/index.html:ro \
   -v $(pwd)/logs:/usr/local/apache2/logs \
   --name apache apache-server
 ```
-## 6. Log-Dateien anzeigen
+## 7. Log-Dateien anzeigen
 ```sh
 docker logs apache
 ```
 
-## 7. Zugriff auf die Webseite
+## 8. Zugriff auf die Webseite
 Im Browser aufrufen:
 ```
 http://localhost:8080
 ```
-## 8. Hinweise
+## 9. Hinweise
 Die Verwendete html Webseite wurde mit chatgpt erstellt.
 
