@@ -9,7 +9,7 @@ Dieses Projekt demonstriert, wie ein Apache-Webserver in einem Docker-Container 
 - **Markdown** – Dokumentation und Strukturierung des Projekts
 
 
-## Dockerfile: Erstellung des Images
+## Image
 Das **Dockerfile** nutzt das Basis-Image `httpd:latest` und kopiert die Webseite in den entsprechenden Ordner für Apache.
 ```dockerfile
 FROM httpd:latest
@@ -19,7 +19,7 @@ EXPOSE 8080
 CMD ["httpd", "-D", "FOREGROUND"]
 ```
 
-## Container-Start mit Volumes
+## Container mit Volume
 Um den Container zu starten und Dateien als Volumes einzubinden, verwende den folgenden Befehl:
 ```sh
 docker run -d -p 8080:80 \
@@ -28,5 +28,5 @@ docker run -d -p 8080:80 \
   --name my-apache-server Apache
 ```
 
-## Fazit
+## Schlusswort
 Durch den Einsatz von Docker kann eine statische Webseite einfach und effizient mit Apache bereitgestellt werden. Volumes gewährleisten, dass sowohl die Webinhalte als auch die Server-Logs erhalten bleiben, selbst wenn der Container gestoppt oder entfernt wird.
