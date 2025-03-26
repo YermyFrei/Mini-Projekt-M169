@@ -23,9 +23,9 @@ CMD ["httpd", "-D", "FOREGROUND"]
 Um den Container zu starten und Dateien als Volumes einzubinden, verwende den folgenden Befehl:
 ```sh
 docker run -d -p 8080:80 \
-  -v $(pwd)/website:/usr/local/apache2/htdocs:ro \
+  -v $(pwd)/index.html:/usr/local/apache2/htdocs/index.html:ro \
   -v $(pwd)/logs:/usr/local/apache2/logs \
-  --name apache apache
+  --name apache apache-server
 ```
 
 ## Schlusswort
