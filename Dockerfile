@@ -3,6 +3,6 @@
 
 FROM httpd:latest
 WORKDIR /usr/local/apache2/htdocs/
-COPY ./webseite.html /usr/local/apache2/htdocs/index.html
+COPY ./index.html /usr/local/apache2/htdocs/index.html
 EXPOSE 8080
 CMD ["httpd", "-D", "FOREGROUND"]
