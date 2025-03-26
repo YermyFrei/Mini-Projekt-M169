@@ -2,11 +2,9 @@
 
 ## 1. Überblick
 In diesem Mini-Projekt wird ein ein Docker image erttellt um mit einem apatche server eine webseite zu hosten.
-um die daten vor verlust beim entfernen zu schützen wird dabei ein volume verwendet.
 
 ## 2. Anforderungen
 - Docker muss installiert sein
-- Git (optional für die Versionsverwaltung)
 
 ## 3. Repository herunterladen
 ```sh
